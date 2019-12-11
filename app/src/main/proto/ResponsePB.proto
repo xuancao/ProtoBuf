@@ -1,0 +1,28 @@
+syntax = "proto3";  // syntax = "proto3";声明proto协议版本，proto2和proto3在定义数据结构时有些差别
+package tutorial;
+
+option java_package = "com.xuancao.pro"; //定义了Protobuf自动生成类的包名。
+option java_outer_classname = "ResponesePB"; //定义了Protobuf自动生成类的类名
+
+message Tab {
+    int32 type = 1;
+    string f = 2;
+}
+
+message ItemData {
+    string sname = 1;
+    string packageid = 2;
+    repeated Tab tabs = 45;
+}
+
+message DataItem{
+    int32 datatype = 1;
+    ItemData itemdata = 2;
+}
+
+message Response {
+    repeated DataItem data = 1;
+    bool hasNextPage = 2;
+    string dirtag = 3;
+}
+
